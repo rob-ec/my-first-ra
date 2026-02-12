@@ -10,19 +10,42 @@
         overflow: hidden;
       }
     </style>
+    <script>
+      AFRAME.registerComponent('interactable-model', {
+        init: function () {
+          var el = this.el;
+          // Clona a escala atual para usar como referência
+          var scale = el.getAttribute('scale');
+          var originalScale = {x: scale.x, y: scale.y, z: scale.z};
+
+          // Interação A: Pressionar (mousedown) aumenta a escala
+          el.addEventListener('mousedown', function () {
+            el.setAttribute('scale', {x: originalScale.x * 1.5, y: originalScale.y * 1.5, z: originalScale.z * 1.5});
+          });
+
+          // Restaurar escala ao soltar (mouseup)
+          el.addEventListener('mouseup', function () {
+            el.setAttribute('scale', originalScale);
+          });
+        }
+      });
+    </script>
   </head>
   <body>
-    <a-scene embedded arjs="sourceType: webcam;">
+    <a-scene embedded arjs="sourceType: webcam;" cursor="rayOrigin: mouse" raycaster="objects: .clickable">
       <a-entity light="type: ambient; color: #BBB; intensity: 10"></a-entity>
       <a-entity light="type: directional; color: #FFF; intensity: 20" position="-20 -30 30"></a-entity>
       <a-entity light="type: directional; color: #FFF; intensity: 20" position="0 0 60"></a-entity>
       <a-entity camera></a-entity>
       <a-marker preset="hiro">
         <a-entity
+          class="clickable"
+          interactable-model
           gltf-model="url(assets/corinthians_symbol__simbolo_do_corinthians.glb)"
           scale="0.08 0.08 0.08"
           rotation="-90 0 0"
           position="0 0 0"
+          animation="property: rotation; from: -90 0 0; to: -90 360 0; dur: 1000; startEvents: click"
         >
           <!-- "Corinthians Symbol ~ Símbolo do Corinthians" (https://skfb.ly/6Uup8) by Lucas Quincoses Toledo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
         </a-entity>
