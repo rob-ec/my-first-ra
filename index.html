@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>My First AR</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="AR Project - Corinthians Symbol">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
@@ -54,6 +57,14 @@
           <!-- Interação C: O atributo 'animation-mixer' adicionado acima toca a animação interna do modelo -->
           <!-- "Corinthians Symbol ~ Símbolo do Corinthians" (https://skfb.ly/6Uup8) by Lucas Quincoses Toledo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
         </a-entity>
+
+        <!-- Créditos do modelo em 3D -->
+        <a-text
+          value="Corinthians Symbol\nby Lucas Quincoses Toledo\nCC BY 4.0"
+          position="0 0 1.3"
+          rotation="-90 0 0"
+          align="center"
+          scale="1.5 1.5 1.5"></a-text>
       </a-marker>
     </a-scene>
   </body>
