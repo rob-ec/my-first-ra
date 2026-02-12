@@ -35,6 +35,12 @@ Permit the app to use the camera and RA related sensors. Then point the camera t
 
 ![Hiro_marker_ARjs](assets/Hiro_marker_ARjs.png)
 
+## 📹 Demo
+
+Click on the flowing link/image to see the demo video:
+
+[![https://youtube.com/shorts/XzsYx5CVrcM](https://img.youtube.com/vi/XzsYx5CVrcM/maxresdefault.jpg)](https://youtube.com/shorts/XzsYx5CVrcM)
+
 ## 🎨 Credits
 
 > ["Corinthians Symbol ~ Símbolo do Corinthians"](https://skfb.ly/6Uup8) by Lucas Quincoses Toledo is licensed under [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
