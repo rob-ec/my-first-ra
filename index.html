@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
   <head>
-    <title>Meu Projeto AR</title>
+    <title>My First AR</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <style>
       body {
         margin: 0;
@@ -14,16 +15,17 @@
       AFRAME.registerComponent('interactable-model', {
         init: function () {
           var el = this.el;
-          // Clona a escala atual para usar como referência
+
+          // Clone the current scale to use as a reference
           var scale = el.getAttribute('scale');
           var originalScale = {x: scale.x, y: scale.y, z: scale.z};
 
-          // Interação A: Pressionar (mousedown) aumenta a escala
+          // Interaction A: Press (mousedown) increases the scale
           el.addEventListener('mousedown', function () {
             el.setAttribute('scale', {x: originalScale.x * 1.5, y: originalScale.y * 1.5, z: originalScale.z * 1.5});
           });
 
-          // Restaurar escala ao soltar (mouseup)
+          // Restore the scale when the mouse is released (mouseup)
           el.addEventListener('mouseup', function () {
             el.setAttribute('scale', originalScale);
           });
@@ -45,8 +47,11 @@
           scale="0.08 0.08 0.08"
           rotation="-90 0 0"
           position="0 0 0"
+          animation-mixer
           animation="property: rotation; from: -90 0 0; to: -90 360 0; dur: 1000; startEvents: click"
         >
+          <!-- Interação B: O atributo 'animation' acima (startEvents: click) implementa o toque rápido -->
+          <!-- Interação C: O atributo 'animation-mixer' adicionado acima toca a animação interna do modelo -->
           <!-- "Corinthians Symbol ~ Símbolo do Corinthians" (https://skfb.ly/6Uup8) by Lucas Quincoses Toledo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
         </a-entity>
       </a-marker>
